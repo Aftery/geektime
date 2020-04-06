@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/foo?useSSL=false
+    username: root
+    password: 12345678
+    driver-class-name: com.mysql.jdbc.Driver
+    druid:
+      initial-size: 5
+      max-active: 5
+      min-idle: 5
+      filters: config,slf4j
+      test-while-idle: true
+      test-on-return: true
+      test-on-borrow: true
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 100

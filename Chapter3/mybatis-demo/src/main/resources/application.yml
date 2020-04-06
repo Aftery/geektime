@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 12345678
+    url: jdbc:mysql:///test?useSSL=false
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-handlers-package: top.aftery.mybatis.demo.handler

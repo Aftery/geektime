@@ -1,0 +1,51 @@
+package top.aftery.declarative.transaction.demo;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+@Slf4j
+@SpringBootApplication
+@EnableTransactionManagement
+public class DeclarativeTransactionDemoApplication implements CommandLineRunner {
+
+
+    @Autowired
+    private FooService fooService;
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    public static void main(String[] args) {
+        SpringApplication.run(DeclarativeTransactionDemoApplication.class, args);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        fooService.insertRecord();
+        log.info("aaaa:{}", jdbcTemplate.queryForObject("select count(*) from foo where bar='aaaa'", Long.class));
+        log.info("================================================================================================");
+
+        try {
+            fooService.insertThenRollback();
+
+        } catch (Exception e) {
+            log.info("bbbb:{}", jdbcTemplate.queryForObject("select count(*) from foo where bar='bbbb'", Long.class));
+        }
+        log.info("================================================================================================");
+
+        try {
+
+            fooService.invokeInsertThenRollback();
+        } catch (Exception e) {
+            log.info("bbbb:{}", jdbcTemplate.queryForObject("select count(*) from foo where bar='bbbb'", Long.class));
+
+        }
+
+
+    }
+}
