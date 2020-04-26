@@ -1,0 +1,10 @@
+spring:
+  r2dbc:
+    url: r2dbc:pool:mysql://127.0.0.1:3306/test?useSSL=false
+    username: root
+    password: 12345678
+    pool:
+      initial-size: 100
+      max-size: 500
+      max-idle-time: 30m
+      validation-query: SELECT 1

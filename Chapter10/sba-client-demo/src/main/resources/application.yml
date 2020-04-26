@@ -1,0 +1,28 @@
+spring:
+  security:
+    user:
+      name: root
+      password: 123456
+  application:
+    name: sba-client
+  boot:
+    admin:
+      client:
+        url: http://localhost:8080
+        username: root
+        password: 12345678
+        instance:
+          metadata:
+            user:
+              name: ${spring.security.user.name}
+              password: ${spring.security.user.password}
+server:
+  port: 8081
+info:
+  demo:
+    name: Spring Boot Admin Client Demo
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

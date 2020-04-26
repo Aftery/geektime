@@ -9,4 +9,4 @@ mybatis:
     map-underscore-to-camel-case: true
   type-handlers-package: top.aftery.mybatis.demo.handler
   mapper-locations: classpath*:/mapper/*.xml
-  type-aliases-package: top.aftery.mybatis.generator.model
+  type-aliases-package: top.aftery.mybatis.generator.top.aftery.advanced.resttemplate.demo.model

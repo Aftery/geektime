@@ -16,7 +16,7 @@
                         password="12345678">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="top.aftery.mybatis.generator.model"
+        <javaModelGenerator targetPackage="top.aftery.mybatis.generator.top.aftery.advanced.resttemplate.demo.model"
                             targetProject="Chapter3/mybatis-generator-demo/src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
