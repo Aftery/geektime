@@ -35,7 +35,7 @@ public class Coffee implements Serializable {
     private String name;
 
     @Column
-    @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmount",
+    @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyMinorAmount",
             parameters = {@org.hibernate.annotations.Parameter(name = "currencyCode", value = "CNY")})
     private Money price;
 
